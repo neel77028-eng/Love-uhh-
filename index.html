@@ -2,49 +2,86 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For Someone Special ❤️</title>
+<title>For You ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
 body{
   margin:0;
-  font-family: Arial;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(120deg,#ff758c,#ff7eb3);
+  font-family:'Poppins',sans-serif;
   text-align:center;
-  background: linear-gradient(120deg,#ff9a9e,#fad0c4);
   color:white;
 }
+
 .container{
-  margin-top:20%;
+  background:rgba(255,255,255,0.15);
+  padding:40px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
 }
+
 h1{
-  font-size:48px;
+  font-family:'Great Vibes',cursive;
+  font-size:60px;
+  margin-bottom:10px;
 }
+
 p{
   font-size:22px;
 }
+
 button{
   padding:15px 30px;
   font-size:20px;
   border:none;
-  border-radius:25px;
+  border-radius:30px;
+  margin:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+#yes{
   background:white;
   color:#ff4d6d;
-  cursor:pointer;
+}
+
+#no{
+  background:#ff4d6d;
+  color:white;
+  position:relative;
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
-<h1>I Have Something to Say 💖</h1>
-<p>You make my life beautiful every day.</p>
+<h1>Hey Beautiful 💖</h1>
 <p>Will you be mine forever?</p>
-<button onclick="showLove()">Click Here</button>
+
+<button id="yes" onclick="yesClick()">YES ❤️</button>
+<button id="no" onmouseover="moveNo()">NO 😜</button>
 </div>
 
 <script>
-function showLove(){
+function yesClick(){
   document.body.innerHTML =
-  "<h1 style='margin-top:20%;font-size:50px;'>I Love You ❤️</h1><p style='font-size:25px;'>Will you be my girlfriend forever?</p>";
+  "<h1 style='font-family:Great Vibes;font-size:70px;margin-top:20%;color:white;'>Yayyy ❤️ I Love You!</h1>";
+}
+
+function moveNo(){
+  var btn = document.getElementById("no");
+  btn.style.position = "absolute";
+  btn.style.top = Math.random()*80 + "%";
+  btn.style.left = Math.random()*80 + "%";
 }
 </script>
+
 </body>
 </html>
