@@ -24,23 +24,26 @@ body{
   padding:40px;
   border-radius:20px;
   backdrop-filter:blur(10px);
-  position:relative;
-  width:320px;
-  height:260px;
 }
 
 h1{
   font-family:'Great Vibes',cursive;
-  font-size:50px;
+  font-size:60px;
+  margin-bottom:10px;
+}
+
+p{
+  font-size:22px;
 }
 
 button{
-  padding:12px 25px;
-  font-size:18px;
+  padding:15px 30px;
+  font-size:20px;
   border:none;
-  border-radius:25px;
+  border-radius:30px;
   margin:10px;
   cursor:pointer;
+  transition:0.3s;
 }
 
 #yes{
@@ -51,49 +54,32 @@ button{
 #no{
   background:#ff4d6d;
   color:white;
-  position:absolute;
+  position:relative;
 }
 </style>
 </head>
 
 <body>
 
-<div id="main" class="container">
-  <h1>Something for you 💖</h1>
-  <button onclick="showProposal()">Click Here</button>
+<div class="container">
+<h1>Hey Beautiful 💖</h1>
+<p>Will you be mine forever?</p>
+
+<button id="yes" onclick="yesClick()">YES ❤️</button>
+<button id="no" onmouseover="moveNo()">NO 😜</button>
 </div>
 
 <script>
-function showProposal(){
-  document.getElementById("main").innerHTML = `
-    <h1>Hey Beautiful 💖</h1>
-    <p>Will you be mine forever?</p>
-    <button id="yes" onclick="yesClick()">YES ❤️</button>
-    <button id="no">NO 😜</button>
-  `;
-
-  var box = document.getElementById("main");
-  var noBtn = document.getElementById("no");
-
-  function moveNo(){
-    var maxX = box.clientWidth - noBtn.offsetWidth;
-    var maxY = box.clientHeight - noBtn.offsetHeight;
-
-    var x = Math.random() * maxX;
-    var y = Math.random() * maxY;
-
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  }
-
-  noBtn.addEventListener("mouseover", moveNo);
-  noBtn.addEventListener("click", moveNo);
-  noBtn.addEventListener("touchstart", moveNo);
-}
-
 function yesClick(){
   document.body.innerHTML =
   "<h1 style='font-family:Great Vibes;font-size:70px;margin-top:20%;color:white;'>Yayyy ❤️ I Love You!</h1>";
+}
+
+function moveNo(){
+  var btn = document.getElementById("no");
+  btn.style.position = "absolute";
+  btn.style.top = Math.random()*80 + "%";
+  btn.style.left = Math.random()*80 + "%";
 }
 </script>
 
