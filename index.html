@@ -17,6 +17,7 @@ body{
   font-family:'Poppins',sans-serif;
   text-align:center;
   color:white;
+  overflow:hidden;
 }
 
 .container{
@@ -54,7 +55,7 @@ button{
 #no{
   background:#ff4d6d;
   color:white;
-  position:relative;
+  position:absolute;
 }
 </style>
 </head>
@@ -66,7 +67,7 @@ button{
 <p>Will you be mine forever?</p>
 
 <button id="yes" onclick="yesClick()">YES ❤️</button>
-<button id="no" onmouseover="moveNo()">NO 😜</button>
+<button id="no">NO 😜</button>
 </div>
 
 <script>
@@ -77,10 +78,17 @@ function yesClick(){
 
 function moveNo(){
   var btn = document.getElementById("no");
-  btn.style.position = "absolute";
-  btn.style.top = Math.random()*80 + "%";
-  btn.style.left = Math.random()*80 + "%";
+  var x = Math.random() * window.innerWidth * 0.8;
+  var y = Math.random() * window.innerHeight * 0.8;
+
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
 }
+
+var noBtn = document.getElementById("no");
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("click", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
 </script>
 
 </body>
